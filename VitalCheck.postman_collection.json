@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "8c44af05-111d-4c97-a89c-a2cc90ee35be",
+		"name": "VitalCheck",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21522862",
+		"_collection_link": "https://red-space-487422.postman.co/workspace/VitalCheck_api~5845acd6-1c12-4c2f-9daf-60f03126abc8/collection/21522862-8c44af05-111d-4c97-a89c-a2cc90ee35be?action=share&creator=21522862&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Data",
+			"item": [
+				{
+					"name": "fetch Sensor Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}sensorData/f0562ba7-8fc4-4fea-919a-f8592b8fe251",
+							"host": [
+								"{{base_url}}sensorData"
+							],
+							"path": [
+								"f0562ba7-8fc4-4fea-919a-f8592b8fe251"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Sensor Data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " \n {\n        \"bmp\": 2.0,\n        \"height\": 1.0,\n        \"temperature\": 6.2,\n        \"weight\": 2.0,\n        \"sensor_id\":1,\n        \"user_id\":\"f0562ba7-8fc4-4fea-919a-f8592b8fe251\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}sensor_data",
+							"host": [
+								"{{base_url}}sensor_data"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "add User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \n   \"name\":\"NhanaQwahme\",\n   \"email\":\"Nhana@Qwahme.com\",\n   \"password\":\"Nhana@Qwahme.com\" ,\n   \"admin\":0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}user",
+							"host": [
+								"{{base_url}}user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \n   \n \"email\":\"Nhana@Qwahme.com\",\n    \"password\":\"Nhana@Qwahme.com\" \n}\n ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}login",
+							"host": [
+								"{{base_url}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch_all_users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}users",
+							"host": [
+								"{{base_url}}users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "Reply",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":\"ebc34147-2fdc-43bc-8e9d-b20a4ee3cc8d\",\r\n    \"message\":\"Missing you\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}chat_nurse/e2b6c826-c314-4f64-8abd-48ebce0bb507",
+							"host": [
+								"{{base_url}}chat_nurse"
+							],
+							"path": [
+								"e2b6c826-c314-4f64-8abd-48ebce0bb507"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\":\"ebc34147-2fdc-43bc-8e9d-b20a4ee3cc8d\",\r\n    \"message\":\"how are you\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}chat_nurse",
+							"host": [
+								"{{base_url}}chat_nurse"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Verify Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"pm.test(\"Response time is less than 200ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(200);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://vitalcheckapiv2-vitalcheckapiv2.up.railway.app/api/",
+			"type": "string"
+		}
+	]
+}
