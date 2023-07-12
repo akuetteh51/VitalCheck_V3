@@ -3,24 +3,35 @@ import 'package:provider/provider.dart';
 import 'package:vitacheck/pageNavigator.dart';
 import 'package:vitacheck/provider/Database/db_provider.dart';
 import 'package:vitacheck/provider/dark_theme_provider.dart';
+import 'package:vitacheck/theme_data.dart';
 import 'package:vitacheck/views/graph.dart';
 import '../provider/sensor_provider.dart';
 import '../widgets/Sensor_Data.dart';
 import '../widgets/bottom_navigation..dart';
 
-  enum MenuItem{
-logOut,Dark_theme,Graph
-  }
-class SensorHome extends StatelessWidget {
+
+
+
+enum MenuItem{
+logOut,  Dark_theme,Graph
+  } 
+class SensorHome extends StatefulWidget {
 
 
 
   const SensorHome({super.key});
 
   @override
+  State<SensorHome> createState() => _SensorHomeState();
+}
+
+class _SensorHomeState extends State<SensorHome> {
+
+  @override
+  
   Widget build(BuildContext context) {
     SensorDataApi sensorData1 = context.watch<SensorDataApi>();
-    DarkThemeProvider darkTheme = DarkThemeProvider();
+    final  darkTheme = Provider.of<DarkThemeProvider>(context);
     
 
     return StreamBuilder<Map>(
@@ -34,18 +45,18 @@ class SensorHome extends StatelessWidget {
               //   selectedIndex: 4,
               // ),
               appBar: AppBar(
-                       iconTheme: IconThemeData(color: const Color(0xFF3E64FF),),
+                       iconTheme:  IconThemeData(color: const Color(0xFF3E64FF),),
 
                 scrolledUnderElevation: 0,
                 elevation: 0,
-                backgroundColor: Colors.white70,
+              
                 title: Row(
                   children: const [
                     SizedBox(
                       width: 20,
                     ),
                     Text(
-                      "Hello,Welcome ",
+                      "Hello ",
                       style: TextStyle(
                           fontSize: 24,
                           color: Color(0xFF3E64FF),
@@ -75,7 +86,13 @@ pageNavigator(ctx:context).nextPageOnly(page:Graph());
                       child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,children: [ 
         Icon(Icons.add_chart,color: Color(0xFF3E64FF),),
           Text('Graph')]),)
-      , 
+      , PopupMenuItem( value:MenuItem.Dark_theme,
+        child:
+       Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,children: [ 
+
+                        Icon(Icons.nightlight,color: Color(0xFF3E64FF),),
+          Text('Dark Theme'),],),)
+               ,
       PopupMenuItem( value:MenuItem.logOut ,
         child:
        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,children: [ 
