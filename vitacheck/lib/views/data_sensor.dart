@@ -11,9 +11,9 @@ import '../widgets/bottom_navigation..dart';
 
 
 
-
+bool theme_state=false;
 enum MenuItem{
-logOut,  Dark_theme,Graph
+logOut, Dark_theme , Light_theme,Graph
   } 
 class SensorHome extends StatefulWidget {
 
@@ -26,6 +26,7 @@ class SensorHome extends StatefulWidget {
 }
 
 class _SensorHomeState extends State<SensorHome> {
+MenuItem status= theme_state ? MenuItem.Dark_theme : MenuItem.Light_theme;
 
   @override
   
@@ -72,9 +73,22 @@ class _SensorHomeState extends State<SensorHome> {
 
 DatabaseProvider().logOut(context);
                       }
-                      else if(value ==MenuItem.Dark_theme){
-                        darkTheme.setdarktheme(true);
-                      }
+                      else if(value == MenuItem.Dark_theme){
+                        print("selected Dark Theme");
+                         setState(() {
+                        darkTheme.setdarktheme=true;
+                       theme_state=true;
+                          });
+                  
+                      
+                       
+                   
+                      }else if(value == MenuItem.Light_theme){
+                        print("selected Dark Theme");
+                         setState(() {
+                         darkTheme.setdarktheme= false;
+                       theme_state=false;
+                          });}
                       else if(value==MenuItem.Graph){
 pageNavigator(ctx:context).nextPageOnly(page:Graph());
                       }
@@ -86,12 +100,12 @@ pageNavigator(ctx:context).nextPageOnly(page:Graph());
                       child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,children: [ 
         Icon(Icons.add_chart,color: Color(0xFF3E64FF),),
           Text('Graph')]),)
-      , PopupMenuItem( value:MenuItem.Dark_theme,
+      , PopupMenuItem( value:theme_state?MenuItem.Light_theme  : MenuItem.Dark_theme,
         child:
        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,children: [ 
 
-                        Icon(Icons.nightlight,color: Color(0xFF3E64FF),),
-          Text('Dark Theme'),],),)
+                        Icon( theme_state ? Icons.sunny:  Icons.nightlight,color: Color(0xFF3E64FF),),
+          Text(theme_state ? 'Light Theme'  : 'Dark Theme'),],),)
                ,
       PopupMenuItem( value:MenuItem.logOut ,
         child:

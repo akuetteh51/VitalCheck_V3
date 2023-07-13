@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:vitacheck/provider/Database/dark_theme_perfs.dart';
 import 'package:vitacheck/provider/Database/db_provider.dart';
 import 'package:vitacheck/provider/dark_theme_provider.dart';
 import 'package:vitacheck/provider/sensor_provider.dart';
@@ -12,8 +13,8 @@ import 'package:vitacheck/theme_data.dart';
 import 'provider/messaging_provider.dart';
 
 
+  
 void main() async {
-  DarkThemeProvider darktheme = DarkThemeProvider();
   return runApp(
     MyApp()
     );
@@ -23,13 +24,30 @@ void main() async {
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  void ThemeState(){
+    
+  }
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
+  DarkThemeProvider themeChangeProvider = DarkThemeProvider();
+  @override
+  void getTheme() async{
+themeChangeProvider.setdarktheme = await themeChangeProvider.Theme_prefer.getDarkTheme();
+  
+  }
+  
+  @override
+  void initState() {
+    getTheme();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+    
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => Authentication()),
