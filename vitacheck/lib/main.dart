@@ -11,21 +11,12 @@ import 'package:vitacheck/theme_data.dart';
 
 import 'provider/messaging_provider.dart';
 
-
-  
 void main() async {
-  return runApp(
-    MyApp()
-    );
+  return runApp(MyApp());
 }
-
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
-
-  void ThemeState(){
-    
-  }
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -34,45 +25,46 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   DarkThemeProvider themeChangeProvider = DarkThemeProvider();
   @override
-  void getTheme() async{
-themeChangeProvider.setdarktheme = await themeChangeProvider.Theme_prefer.getDarkTheme();
-  
+  void getTheme() async {
+    themeChangeProvider.setdarktheme =
+        await themeChangeProvider.Theme_prefer.getTheme();
   }
-  
+
   @override
   void initState() {
     getTheme();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => Authentication()),
         ChangeNotifierProvider(create: (_) => DatabaseProvider()),
         ChangeNotifierProvider(create: (_) => SensorDataApi()),
         ChangeNotifierProvider(create: (_) => MessagingDataApi()),
-        ChangeNotifierProvider(create: (_) =>ReplyDataApi()),
-        
+        ChangeNotifierProvider(create: (_) => ReplyDataApi()),
         StreamProvider<Map>(
             create: (_) => SensorDataApi().initStream(), initialData: {}),
-         
         StreamProvider<Map>(
             create: (_) => MessagingDataApi().initChat(), initialData: {}),
-            ChangeNotifierProvider<DarkThemeProvider>(
-              create: (context) =>DarkThemeProvider() ,
-            )
+        ChangeNotifierProvider<DarkThemeProvider>(
+          create: (context) => DarkThemeProvider(),
+        )
       ],
-      child: Consumer<DarkThemeProvider
-      >(builder: (context,darktheme,child){
-
-    return  MaterialApp(
-      theme: Styles.themeData(darktheme.darktheme,context ),
-          debugShowCheckedModeBanner: false,
-          home: responsive(Mobile: mobileView(),Desktop: desktopView(),),
-        );
-      },
-      ),);
+      child: Consumer<DarkThemeProvider>(
+        builder: (context, darktheme, child) {
+          return MaterialApp(
+            theme: Styles.themeData(darktheme.darktheme, context),
+            debugShowCheckedModeBanner: false,
+            home: responsive(
+              Mobile: mobileView(),
+              Desktop: desktopView(),
+            ),
+          );
+        },
+      ),
+    );
   }
 }
