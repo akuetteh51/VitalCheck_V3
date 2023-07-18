@@ -21,19 +21,21 @@ class About extends StatelessWidget {
                   height: 40,
                 ),
                 Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(21),
-                      color: Color(0xff3E64FF),
-                    ),
-                    height: 43,
-                    width: 274,
-                    child: Center(
-                      child: Text("What we do :",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold)),
+                  child: Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(21),
+                        color: Color(0xff3E64FF),
+                      ),
+                      height: 43,
+                      width: 274,
+                      child: Center(
+                        child: Text("What we do :",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold)),
+                      ),
                     ),
                   ),
                 ),

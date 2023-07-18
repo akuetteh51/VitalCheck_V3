@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:validators/validators.dart';
 import 'package:vitacheck/pageNavigator.dart';
 import '../provider/auth/auth_provider.dart';
-import '../widgets/vitatoast.dart';
 import 'login.dart';
 
 class SignUp extends StatefulWidget {

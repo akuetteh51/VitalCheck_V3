@@ -17,7 +17,7 @@ Map respData={};
     try {
       var dio = Dio();
       Response response = await dio.get(
-          "${APPBASEURL.baseUrl}chat_nurse/e2b6c826-c314-4f64-8abd-48ebce0bb507");
+          "${APPBASEURL.baseUrl}chat_nurse/${public}");
          respData= response.data;
       if (respData["status"] == 200) {
         _message =respData;

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-
-import 'package:provider/provider.dart';
 import 'package:vitacheck/pageNavigator.dart';
 import 'package:vitacheck/views/login.dart';
 import 'package:vitacheck/views/signup.dart';
-import 'package:vitacheck/views/welcome.dart';
+
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -88,14 +86,14 @@ class Home extends StatelessWidget {
                   ),
                 
               
-              SizedBox(height: 25),
-              IconButton(
-                onPressed: () {
-                  pageNavigator(ctx: context)
-                      .nextPageOnly(page: const Welcome());
-                },
-                icon: Image.asset("images/google2.png"),
-              ),
+              // SizedBox(height: 25),
+              // IconButton(
+              //   onPressed: () {
+              //     pageNavigator(ctx: context)
+              //         .nextPageOnly(page: const Welcome());
+              //   },
+              //   icon: Image.asset("images/google2.png"),
+              // ),
               SizedBox(height: 25),
               Text("Login using your Google account ?"),
             ],

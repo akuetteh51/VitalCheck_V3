@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:vitacheck/provider/Database/dark_theme_perfs.dart';
 import 'package:vitacheck/provider/Database/db_provider.dart';
 import 'package:vitacheck/provider/dark_theme_provider.dart';
 import 'package:vitacheck/provider/sensor_provider.dart';

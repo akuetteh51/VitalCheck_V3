@@ -88,7 +88,9 @@ bool get state=>_state;
         final res = response.data;
 
         final userId = res['user']['public_id'];
+        final userName = res['user']['name'];
         final token = res['auth_token'];
+        DatabaseProvider().savedUserName(userName);
         DatabaseProvider().savedUserId(userId);
         DatabaseProvider().savedToken(token);
         pageNavigator(ctx: context).nextPageOnly(page: const Welcome());

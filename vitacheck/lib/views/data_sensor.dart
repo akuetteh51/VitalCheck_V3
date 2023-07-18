@@ -3,15 +3,15 @@ import 'package:provider/provider.dart';
 import 'package:vitacheck/pageNavigator.dart';
 import 'package:vitacheck/provider/Database/db_provider.dart';
 import 'package:vitacheck/provider/dark_theme_provider.dart';
-import 'package:vitacheck/theme_data.dart';
 import 'package:vitacheck/views/graph.dart';
 import '../provider/sensor_provider.dart';
 import '../widgets/Sensor_Data.dart';
-import '../widgets/bottom_navigation..dart';
+
 
 
 
 bool theme_state=false;
+bool user_in=false;
 enum MenuItem{
 logOut, Dark_theme , Light_theme,Graph
   } 
@@ -31,6 +31,10 @@ MenuItem status= theme_state ? MenuItem.Dark_theme : MenuItem.Light_theme;
   @override
   
   Widget build(BuildContext context) {
+    final username=DatabaseProvider().getUserName();
+  
+
+    
     SensorDataApi sensorData1 = context.watch<SensorDataApi>();
     final  darkTheme = Provider.of<DarkThemeProvider>(context);
     
@@ -56,13 +60,21 @@ MenuItem status= theme_state ? MenuItem.Dark_theme : MenuItem.Light_theme;
                     SizedBox(
                       width: 20,
                     ),
+
                     Text(
-                      "Hello ",
+                      "Hello , ",
                       style: TextStyle(
                           fontSize: 24,
                           color: Color(0xFF3E64FF),
                           fontWeight: FontWeight.bold),
-                    )
+                    ),
+                    // Text(
+                    //   "$username" ?? "User" ,
+                    //   style: TextStyle(
+                    //       fontSize: 24,
+                    //       color: Color(0xFF3E64FF),
+                    //       fontWeight: FontWeight.bold),
+                    // )
                   ],
                 ),
                 actions: [

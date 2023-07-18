@@ -31,27 +31,35 @@ class _SplashState extends State<Splash> {
               SizedBox(
                 height: 10,
               ),
-              Image.asset(
-                "images/VitaCheck.png",
-                width: 216,
-                height: 19,
+              Expanded(
+                child: Image.asset(
+                  "images/VitaCheck.png",
+                  width: 216,
+                  height: 19,
+                ),
               ),
-              Image.asset(
-                "images/logo3.png",
-                width: 241,
-                height: 256,
+              Expanded(
+                child: Image.asset(
+                  "images/logo3.png",
+                  width: 241,
+                  height: 256,
+                ),
               ),
-              Image.asset(
-                "images/splash.png",
-
-                //
-                width: 269,
-                height: 269,
+              Expanded(
+                child: Image.asset(
+                  "images/splash.png",
+              
+                  //
+                  width: 269,
+                  height: 269,
+                ),
               ),
-              Image.asset(
-                "images/add.png",
-                width: 27,
-                height: 39,
+              Expanded(
+                child: Image.asset(
+                  "images/add.png",
+                  width: 27,
+                  height: 39,
+                ),
               ),
               SizedBox(
                 height: 10,
