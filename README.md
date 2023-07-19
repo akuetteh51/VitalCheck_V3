@@ -87,5 +87,8 @@ SQLlite db is the database server in use.
 </div>
 
 
+<div align="center">
+    <img src="./hardwareCode/Displaytft-0.jpeg" width="400px"</img> 
+</div>
 
      
