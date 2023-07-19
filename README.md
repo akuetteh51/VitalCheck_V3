@@ -81,14 +81,17 @@ SQLlite db is the database server in use.
      the data collected was pushed to online server which can be access form the api section.
 
 # Display
+<p><b>Prototype view</b></p>
+<div align="center">
+    <img src="hardwareCode/Displaytft-o.jpeg" width="400px"</img> 
+</div>
 
+
+<p><b>hardware</b></p>
 <div align="center">
     <img src="Displaytft.jpeg" width="400px"</img> 
 </div>
 
 
-<div align="center">
-    <img src="hardwareCode/Displaytft-o.jpeg" width="400px"</img> 
-</div>
 
      
