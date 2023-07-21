@@ -1,6 +1,5 @@
 # ProjectWork
-Link to figma file
-https://www.figma.com/file/x66WFrfN1Yn1Bww0zCYFTn/Untitled?node-id=0%3A1
+
 
 
 
@@ -63,6 +62,12 @@ SQLlite db is the database server in use.
      Mobile apps are used by patients to check information such as 
      vitals , appointment times, doctor availability, and health statistics.
 
+
+# Mobile UI Design
+<p><b>Mobile Ui</b></p>
+<div align="center">
+    <img src="VitaChek Project Work Mobile Design.png" width="3352px"</img> 
+</div>
 
 # Mobile Platform
      FLutter was used for the mobile app which we used provider for state management 
