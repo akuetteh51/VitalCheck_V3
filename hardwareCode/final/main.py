@@ -5,10 +5,13 @@ import time
 import Bp
 from Bp import get_max30102_values
 
-
+#import Display lib
 import gfx
 from ili9341 import Display, color565
 from xglcd_font import XglcdFont
+
+#import Keypad\
+from key_pad import key_value
 
 # TFT display constants
 TFTWIDTH = 240
@@ -127,6 +130,6 @@ def message_box(input_text,text="Enter Number",  color=0x3E64FF):
     display.draw_text(80, 112, input_text, unispace, WHITE, color)
     
 while True:
-    main_fun(get_max30102_values()[0],get_max30102_values()[1],get_max30102_values()[2],get_max30102_values()[3])
+    # main_fun(get_max30102_values()[0],get_max30102_values()[1],get_max30102_values()[2],get_max30102_values()[3])
 
-#     message(text="place your finger ",  color=0x3E64FF)
+    message(text=key_value,  color=0x3E64FF)
